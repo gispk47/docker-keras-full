@@ -83,6 +83,7 @@ RUN pip --no-cache-dir install \
     nltk \
     gensim \
     jieba \
+    spacy \
  && python -m ipykernel.kernelspec \
  && pip3 --no-cache-dir install \
     # jupyter notebook and ipython (Python 3)
@@ -97,6 +98,7 @@ RUN pip --no-cache-dir install \
     nltk \
     gensim \
     jieba \
+    spacy \
  && python3 -m ipykernel.kernelspec
 
 # configure console
