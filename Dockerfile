@@ -1,6 +1,6 @@
 # docker-debian-cuda - Debian 9 with CUDA Toolkit
 
-FROM gw000/keras:2.0.2-gpu
+FROM gw000/keras:2.0.2
 MAINTAINER gw0 [http://gw.tnode.com/] <gw.2017@ena.one>
 
 # install py2-tf-cpu/gpu (Python 2, TensorFlow, CPU/GPU)
@@ -14,6 +14,7 @@ RUN pip --no-cache-dir install git+https://github.com/Theano/Theano.git@rel-${TH
 # install py3-tf-cpu/gpu (Python 3, TensorFlow, CPU/GPU)
 RUN apt-get update -qq \
  && apt-get install --no-install-recommends -y \
+
     # install python 3
     python3 \
     python3-dev \
@@ -25,6 +26,9 @@ RUN apt-get update -qq \
     libopenblas-base \
     python3-numpy \
     python3-scipy \
+    python3-matplotlib \
+    python3-pandas \
+    python3-sklearn \
     # requirements for keras
     python3-h5py \
     python3-yaml \
@@ -73,7 +77,12 @@ RUN pip --no-cache-dir install \
     # data analysis (Python 2)
     pandas \
     scikit-learn \
+    tflearn \
     statsmodels \
+    # nlp (Python 2)
+    nltk \
+    gensim \
+    jieba \
  && python -m ipykernel.kernelspec \
  && pip3 --no-cache-dir install \
     # jupyter notebook and ipython (Python 3)
@@ -82,7 +91,12 @@ RUN pip --no-cache-dir install \
     # data analysis (Python 3)
     pandas \
     scikit-learn \
+    tflearn \
     statsmodels \
+    # nlp (Python 2)
+    nltk \
+    gensim \
+    jieba \
  && python3 -m ipykernel.kernelspec
 
 # configure console
