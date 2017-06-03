@@ -74,6 +74,7 @@ RUN pip --no-cache-dir install \
     ipython \
     ipykernel \
     jupyter \
+    jupyter_kernel_gateway \
     # data analysis (Python 2)
     pandas \
     scikit-learn \
@@ -117,6 +118,8 @@ RUN dpkg-query -l > /dpkg-query-l.txt \
 EXPOSE 8888
 # for tensorboard
 EXPOSE 6006
+# for jupyter_kernel_gateway
+EXPOSE 9001
 
 WORKDIR /srv/
 CMD /bin/bash -c 'jupyter notebook --no-browser --ip=* --NotebookApp.password="$PASSWD" --allow-root "$@"'
