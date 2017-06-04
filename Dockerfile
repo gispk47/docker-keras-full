@@ -85,6 +85,8 @@ RUN pip --no-cache-dir install \
     gensim \
     jieba \
     spacy \
+    # webapi
+    flask \
  && python -m ipykernel.kernelspec \
  && pip3 --no-cache-dir install \
     # jupyter notebook and ipython (Python 3)
@@ -100,6 +102,8 @@ RUN pip --no-cache-dir install \
     gensim \
     jieba \
     spacy \
+    # webapi
+    flask \
  && python3 -m ipykernel.kernelspec
 
 # configure console
@@ -120,6 +124,8 @@ EXPOSE 8888
 EXPOSE 6006
 # for jupyter_kernel_gateway
 EXPOSE 9001
+# for jupyter_kernel_gateway
+EXPOSE 5000
 
 WORKDIR /srv/
 CMD /bin/bash -c 'jupyter notebook --no-browser --ip=* --NotebookApp.password="$PASSWD" --allow-root "$@"'
