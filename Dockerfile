@@ -85,6 +85,7 @@ RUN pip --no-cache-dir install \
     gensim \
     jieba \
     spacy \
+    thulac \
     # webapi
     flask \
  && python -m ipykernel.kernelspec \
@@ -102,6 +103,7 @@ RUN pip --no-cache-dir install \
     gensim \
     jieba \
     spacy \
+    thulac \
     # webapi
     flask \
  && python3 -m ipykernel.kernelspec
